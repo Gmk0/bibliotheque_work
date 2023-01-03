@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\User\AddWork;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/publication', function () {
-    return view('publication');
-})->name('publication');
+
+Route::get('/admin', function () {
+    return view('admin.home');
+});
+
 
 Route::get('/consultaion', function () {
     return view('consultation');
@@ -31,4 +34,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/publication',AddWork::class)->name('publication');
+
 });
+
+require 'admin.php';

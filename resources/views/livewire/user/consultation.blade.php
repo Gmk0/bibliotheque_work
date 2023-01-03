@@ -11,6 +11,7 @@
 </style>
     
 @endsection
+
 <div class="container">
     <div class="row  min-vh-100">
 
