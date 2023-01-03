@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+Route::get('/publication', function () {
+    return view('publication');
+})->name('publication');
 
+Route::get('/consultaion', function () {
+    return view('consultation');
+})->name('consultation');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
