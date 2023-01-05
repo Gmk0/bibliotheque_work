@@ -563,7 +563,8 @@ text-decoration: none;
   }
   
   .bg-card{
-    background: #6f95b1d3;
+    background: #007d7bc8;
+    height: 70%;
   }
 
    .bg-carousel {
@@ -583,3 +584,6 @@ text-decoration: none;
             font-size: 30px;
     
         }
+
+    
+
