@@ -167,6 +167,6 @@ class DomaineViews extends Component
             ->paginate(10),
           
         ])->extends('layouts.admin')
-        ->section('content');;
+        ->section('content');
     }
 }

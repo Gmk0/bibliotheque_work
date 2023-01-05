@@ -80,8 +80,9 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link ">
+                <li class="nav-item ">
+                    <a href="{{route('admin.users')}}"
+                        class="nav-link @if(request()->routeIs('admin.users')) active @endif">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Utilisateur
@@ -90,7 +91,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link ">
+                    <a href="{{route('admin.administration')}}"
+                        class="nav-link @if(request()->routeIs('admin.administration')) active @endif ">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Administration
