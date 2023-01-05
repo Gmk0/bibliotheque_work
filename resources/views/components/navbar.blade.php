@@ -1,13 +1,23 @@
 <!-- Navbar -->
-<nav class="navbar pb-3 pt-2 navbar-expand-lg navbar-light shadow  bg-white sticky-top ">
+
+@php
+$change="bg-white navbar-light shadow sticky-top";
+
+@endphp
+<nav id="nav"
+  class="navbar pb-3 pt-2 navbar-expand-lg  @if(request()->routeIs('home')) fixed-top navbar-dark @else {{$change}} @endif    ">
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
     <a class="navbar-brand me-2" href="https://mdbgo.com/">
       <img src="{{asset('images/logo.png')}}" height="50" width="30" alt="" loading="lazy" style="margin-top: -1px;" />
 
+
+
     </a>
-    <h3 class="mr-lg-3">BIBLIOTHEQUE</h3>
+    <h3 id="brand"
+      class="mr-lg-3 text-2xl font-bold @if(request()->routeIs('home')) text-light @else  text-dark @endif">
+      BIBLIOTHEQUE</h3>
 
     <!-- Toggle button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarButtonsExample"
@@ -19,8 +29,8 @@
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <!-- Left links -->
       <ul class="navbar-nav ms-auto mb-2 mr-lg-2 mb-lg-0">
-        <li class="nav-item @if(request()->routeIs('home')) actives @endif">
-          <a class="nav-link " href="">Accueil</a>
+        <li class="nav-item  @if(request()->routeIs('home')) actives @endif">
+          <a class="nav-link " href="{{route('home')}}">Accueil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Travaux</a>

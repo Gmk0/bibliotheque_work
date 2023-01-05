@@ -2,7 +2,9 @@
 
 
 @section('content')
-
+@section('style')
+<link rel="stylesheet" href="{{url('build/assets/app-1a393faf.css')}}">
+@endsection
 
 <section class="container">
     <div>
@@ -46,3 +48,11 @@
 
 
 @endsection
+@push('script')
+
+<script>
+    $("nav").removeClass('sticky-top');
+ 
+</script>
+
+@endpush

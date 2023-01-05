@@ -6,9 +6,20 @@
 @section('content')
 
 
+<header class="masthead" style="background-image: url('../images/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Bienvenue </h1>
+                    <span class="subheading">Tout vos Travaux de fin cycle disponible Partout Ou vous etes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-
-<section class="mb-3">
+{{--<section class="mb-3">
 
     <div class="rounded mb-3">
         <!-- Carousel wrapper -->
@@ -81,31 +92,35 @@
         <!-- Carousel wrapper -->
     </div>
 
-</section>
+</section>--}}
 
-<section class="mb-3 vh-80">
+<section id="domaine" class="mb-3 vh-80">
 
 
     <div class="container mb-5">
-        <div class="my-5">
+        <div class="my-5 text-center">
             <h4>DOMAINES</h4>
         </div>
         <div class="row mt-5">
             <div class="splide mb-3">
                 <div class="splide__track">
                     <div class="splide__list">
-                        @foreach ($Domaine as $domaine) <div class="col-sm-4 splide__slide m-2">
+                        @foreach ($Domaine as $domaine)
+                        <div class="col-sm-4 splide__slide m-2">
 
                             <div class="card cards cards-has-bg text-white " style="background-image: url('../storage/domaines/{{$domaine->image}}');
                         border-radius:15px !important;
                         min-height:250px;">
 
                                 <div class="card-img-overlay  text-center">
-                                    <h4 class="card-title bg-card p-1 rounded">{{$domaine->intitule}}</h4>
-                                    <p class="card-text mb-2 bg-card p-2 rounded">{{$domaine->description}}</p>
-                                    <p class="card-text font-weight-bold mb-5 p-1 rounded bg-card">
-                                        {{count($domaine->works)}} elements
-                                    </p>
+                                    <div class="bg-card rounded ">
+                                        <h4 class="card-title  p-1 ">{{$domaine->intitule}}</h4>
+                                        <p class="card-text mb-2 p-2 ">{{$domaine->description}}</p>
+                                        <p class="card-text font-weight-bold mb-5 p-1 rounded ">
+                                            {{count($domaine->works)}} elements
+                                        </p>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -205,3 +220,56 @@
 
 
 @endsection
+@push('script')
+
+<script>
+    if(window.innerWidth >= 768){
+        $(window).scroll(function() { 
+
+        if(window.innerWidth >=760){
+           let top = $("#domaine").offset().top;
+        if ($(document).scrollTop() >= top) {
+        $('nav').addClass('bg-white',2000);
+        $('nav').addClass('shadow',2000);
+        $('nav').addClass('navbar-light',2000);
+        $('nav').removeClass('navbar-dark',2000);
+        $('#brand').removeClass('text-white',2000);
+        $('#brand').addClass('text-dark',2000);
+        } else {
+        $('nav').removeClass('bg-white',2000);
+        $('nav').removeClass('shadow',2000);
+        $('nav').removeClass('navbar-light',2000);
+        $('nav').addClass('navbar-dark',2000);
+        $('#brand').addClass('text-white',2000);
+        
+        
+        }
+        }else{
+            $('nav').removeClass('navbar-dark',2000);
+            $('#brand').removeClass('text-white',2000);
+            $('nav').addClass('bg-white',2000);
+            $('nav').addClass('sticky-top',2000);
+            $('nav').addClass('shadow',2000);
+            $('nav').addClass('navbar-light',2000);
+            $('#brand').removeClass('text-white',2000);
+            $('#brand').addClass('text-dark',2000);
+        }
+        
+        });
+    }else{
+        $('nav').removeClass('navbar-dark',2000);
+        $('#brand').removeClass('text-white',2000);
+        $('nav').addClass('bg-white',2000);
+        $('nav').addClass('sticky-top',2000);
+        $('nav').addClass('shadow',2000);
+        $('nav').addClass('navbar-light',2000);
+        $('#brand').removeClass('text-white',2000);
+        $('#brand').addClass('text-dark',2000);
+    };
+
+
+
+   
+</script>
+
+@endpush
