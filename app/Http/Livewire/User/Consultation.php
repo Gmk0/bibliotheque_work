@@ -4,9 +4,11 @@ namespace App\Http\Livewire\User;
 
 use App\Models\work;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Consultation extends Component
 {
+    use WithPagination;
 
     public $searchs="";
     public $categorie;

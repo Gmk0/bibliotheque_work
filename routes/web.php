@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\User\AddWork;
+use App\Http\Livewire\User\ViewWorks;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [UserController::class,'home'])->name('home');
 
 Route::get('/admin', function () {
     return view('admin.home');
@@ -36,6 +36,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/publication',AddWork::class)->name('publication');
+    Route::get('/works_view/{id}', ViewWorks::class)->name('works_view');
 
 });
 

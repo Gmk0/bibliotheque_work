@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Livewire\Admin\DomaineViews;
+use App\Http\Livewire\Admin\WorksAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -19,5 +20,6 @@ Route::group(['prefix' => 'admin'], function () {
         })->name('admin.dashboard');
         
         Route::get('/domaines', DomaineViews::class)->name('admin.domaine');
+        Route::get('/works', WorksAdmin::class)->name('admin.works');
     });
 });

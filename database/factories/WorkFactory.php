@@ -18,6 +18,17 @@ class WorkFactory extends Factory
     {
         return [
             //
+
+            "sujet" => $this->faker->realText(50, 2),
+            "categorie" => $this->faker->randomElement(array('TFC', 'MEMOIRE', 'THESE')),
+            "faculte" => $this->faker->randomElement(array('SCIENCES INFORMATIQUE')),
+            "etudiant" => $this->faker->name,
+            "annnee_etude" => $this->faker->numberBetween(2010, 2022),
+            "nbr_pages"=> $this->faker->numberBetween(80, 120),
+            "domaines_id"=>1,
+            "path_document" => "travail.pdf",
+            "status" => 1,
+            "viewCounter" => 0,
         ];
     }
 }

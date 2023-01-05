@@ -45,7 +45,8 @@
                 </li>
 
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link ">
+                    <a href="#"
+                        class="nav-link @if(request()->routeIs('admin.works')) active @endif @if(request()->routeIs('admin.domaine')) active @endif ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Travaux
@@ -54,13 +55,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('admin.works')}}"
+                                class="nav-link @if(request()->routeIs('admin.works')) active @endif">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Travaux</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link @if(request()->routeIs('admin.domaine')) active @endif">
+                            <a href="{{route('admin.domaine')}}"
+                                class="nav-link @if(request()->routeIs('admin.domaine')) active @endif">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Domaine Epxertise</p>
                             </a>

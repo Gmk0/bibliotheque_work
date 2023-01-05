@@ -22,8 +22,8 @@
 
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                    placeholder="Search">
+                                <input wire:model.debounce.800ms="search" type="text" name="table_search"
+                                    class="form-control float-right" placeholder="Search">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default">
@@ -77,6 +77,9 @@
 
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        {{$domaineList->links()}}
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -161,10 +164,108 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    <div wire:ignore.self class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">domaine</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form wire:submit.prevent="editDomaine">
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-12 col-form-label ">{{ __('domaines') }}</label>
+
+                            <div class="col-md-12">
+                                <input id="name" type="text" class="form-control @error('domaineEdit.intitule')
+                                    is-invalid @enderror" autocomplete="name" autofocus
+                                    wire:model.defer="domaineEdit.intitule">
+
+                                @error('domaineEdit.intitule')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="desc" class="col-md-12 col-form-label ">{{ __('description') }}</label>
+
+                            <div class="col-md-12">
+
+                                <textarea name="" id="desc" cols="10" rows="3"
+                                    class="form-control @error('domaineEdit.description') is-invalid @enderror"
+                                    autofocus wire:model.defer="domaineEdit.description">
+
+                                        </textarea>
+
+                                @error('domaineEdit')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="file" class="col-md-12 col-form-label ">{{ __('image') }}</label>
+
+                            <div class="col-md-12">
+                                <img src="{{url('storage/domaines/'.$img)}}" width="35" alt="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="file" class="col-md-12 col-form-label ">{{ __('image') }}</label>
+
+                            <div class="col-md-12">
+                                <input id="file" type="file" class="form-control @error('file') is-invalid @enderror"
+                                    wire:model.defer="fileEdit">
+
+                                @error('file')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                wire:click="cleanModal()">Close</button>
+                            <button type="submit" wire:loading.attr='disabled' class="btn btn-primary">Save</button>
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 </div>
 
 @push("script")
+
+<script>
+    window.addEventListener('Event', event=>{
+    
+    $("#modal-edit").modal('hide');
+    
+    Swal.fire({
+    position:'top-end',
+    toast: true,
+    icon:event.detail.message.type,
+    title:event.detail.message.title,
+    showConfirmButton:false,
+    timer:3000
+    });
+    });
+</script>
 
 <script>
     window.addEventListener('hideModal', event=> {
@@ -177,21 +278,28 @@
        
     });
 
-    
- window.addEventListener('showWarningMessage', event=> {
+    window.addEventListener('showEditModal',event=>{
+    $("#modal-edit").modal('show');
+    });
+
+   
+        window.addEventListener('showWarningMessage', event=> {
         Swal.fire({
-        title: event.detail.message.title,
-        text: event.detail.message.text,
-        icon: event.detail.message.type,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Continuer'
-        }).then((result) => {
-        if (result.isConfirmed) {
-        @this.deleteDomaines(event.detail.message.data.id)
-        }
-        })
-});
+            title: event.detail.message.title,
+            text: event.detail.message.text,
+            icon: event.detail.message.type,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Continuer'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                @this.deleteDomaines(event.detail.message.data.id)
+                }
+            })
+        });
+
+  
+
 </script>
 @endpush

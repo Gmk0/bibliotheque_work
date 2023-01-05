@@ -3,14 +3,23 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Domaine;
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class DomaineViews extends Component
 {
     use WithFileUploads;
+    use WithPagination;
+
+    protected $paginationTheme = "bootstrap";
     public  $domaines = [];
     public $file;
+    public $domaineEdit=[];
+    public $img;
+    public $fileEdit;
+    public $search="";
 
 
 
@@ -65,7 +74,31 @@ class DomaineViews extends Component
 
     public function deleteDomaines(int $id)
     {
+     
+        $domaine=Domaine::find($id);
+        $oldFile = public_path("\storage\domaines\\") . $domaine->image;
+        File::delete($oldFile);
+
         Domaine::destroy($id);
+
+        $this->dispatchBrowserEvent('Event', [
+            "message" => [
+
+                "title" => "le domaine a ete faites avec succes",
+                "type" => "success",
+
+            ]
+        ]);
+    }
+
+    public function goToEdit(int $id){
+
+       
+        $this->domaineEdit=Domaine::find($id)->toArray();
+        $this->img = $this->domaineEdit['image'];
+   
+        $this->dispatchBrowserEvent('showEditModal');
+        
     }
     public function confirmDelete($id, $name)
     {
@@ -83,11 +116,56 @@ class DomaineViews extends Component
         ]);
     }
 
+    public function editDomaine(){
+
+            $this->validate([
+            'domaineEdit.intitule' => 'required|',
+            'domaineEdit.description' => 'required',
+            ]);
+
+         $oldFile= public_path("\storage\domaines\\").$this->domaineEdit['image'];
+         
+         $id = $this->domaineEdit['id'];
+
+       
+
+       
+
+        if(empty($this->fileEdit)){
+            Domaine::find($id)->update([
+                'intitule' => $this->domaineEdit['intitule'],
+                'description' => $this->domaineEdit['description'],
+             
+            ]);
+        }else{
+            $fileName = 'domaine' . time() . $this->fileEdit->getClientOriginalName();
+            $upload_file = $this->fileEdit->storeAs('public/domaines', $fileName);
+            File::delete($oldFile);
+
+            Domaine::find($id)->update([
+                'intitule'=>$this->domaineEdit['intitule'],
+                'description'=>$this->domaineEdit['description'],
+                'image'=>$fileName
+            ]);
+        }
+
+            $this->dispatchBrowserEvent('Event',[
+            "message" => [
+
+                "title" => "Votre modification a ete faites avec succes",
+                "type" => "success",
+              
+            ]
+            ]);
+
+     }
    
     public function render()
     {
         return view('livewire.admin.domaine-views',[
-            'domaineList'=>Domaine::all(),
+            'domaineList'=>Domaine::where("intitule",'LIKE',"%{$this->search}%")
+            ->paginate(10),
+          
         ])->extends('layouts.admin')
         ->section('content');;
     }

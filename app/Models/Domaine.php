@@ -20,7 +20,7 @@ class Domaine extends Model
     ];
 
     public function works(){
-        return $this->BelongsToMany(work::class);
+        return $this->hasMany(work::class,'domaines_id','id');
 
     }
 

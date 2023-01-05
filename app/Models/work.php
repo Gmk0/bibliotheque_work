@@ -11,9 +11,9 @@ class work extends Model
 {
     use HasFactory;
 
-    public function domaine():HasOne {
+    public function domaine(){
 
-            return $this->hasOne(Domaine::class);
+            return $this->belongsTo(Domaine::class,"domaines_id",'id');
     }
 
     protected $fillable = [

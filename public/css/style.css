@@ -491,7 +491,7 @@ text-decoration: none;
     overflow: hidden !important;
     border-radius: 15px !important;
     min-height: 250px;
-    height: 350px;
+    height: 250px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
   }
   @media (max-width: 768px) {
@@ -562,3 +562,24 @@ text-decoration: none;
     background: linear-gradient(0deg, rgba(35, 79, 109, 0.3785889356) 0%, #455f71 100%);
   }
   
+  .bg-card{
+    background: #6f95b1d3;
+  }
+
+   .bg-carousel {
+       background: #b3e1ffbc;
+       font-size: 30px;
+      
+   }
+
+        .bg-carousel-2 {
+            background: #fcffafbc;
+            font-size: 30px;
+    
+        }
+
+        .bg-carousel-3 {
+            background: #ffdca6bc;
+            font-size: 30px;
+    
+        }
