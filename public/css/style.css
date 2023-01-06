@@ -590,7 +590,13 @@ text-decoration: none;
 
 
 
-
+.text{
+    font-size: 18px !important;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 5px;
+    
+}
 @media only screen and (max-width: 768px) {
 
 .lightMode .navbar-brand {

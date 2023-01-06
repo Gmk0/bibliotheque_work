@@ -240,7 +240,9 @@
         $('nav').addClass('navbar-light',2000);
         $('nav').removeClass('navbar-dark',2000);
         $('#brand').removeClass('text-white',2000);
+        $('#userName').removeClass('text-white').addClass('text-dark');
         $('#brand').addClass('text-dark',2000);
+       
         } else {
         $('nav').removeClass('bg-white',2000);
         $('nav').removeClass('shadow',2000);
@@ -248,6 +250,8 @@
         $('nav').addClass('navbar-dark',2000);
         if(current_width > 768){
             $('#brand').addClass('text-white');
+            $('#userName').addClass('text-white');
+
         }
         
    

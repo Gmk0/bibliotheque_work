@@ -56,8 +56,8 @@ $change="bg-white navbar-light shadow sticky-top";
         @auth
         <div class="btn-group ">
 
-          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <button id="userName" type="button " class="navbar-brand text @if(request()->routeIs('home')) text-light @else text-dark @endif btn dropdown-toggle
+            dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="text-reset">{{Auth::user()->name}}</span>
           </button>
           <div class="dropdown-menu">

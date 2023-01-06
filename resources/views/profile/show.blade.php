@@ -3,7 +3,7 @@
 
 @section('content')
 @section('style')
-
+<link rel="stylesheet" href="{{asset('build/assets/app-2a37e680.css')}}">
 @endsection
 
 <section class="container">
