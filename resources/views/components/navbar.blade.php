@@ -5,7 +5,7 @@ $change="bg-white navbar-light shadow sticky-top";
 
 @endphp
 <nav id="nav"
-  class="navbar pb-3 pt-2 navbar-expand-lg  @if(request()->routeIs('home')) fixed-top navbar-dark @else {{$change}} @endif    ">
+  class="navbar pb-3 pt-2 navbar-expand-lg  @if(request()->routeIs('home')) lightMode bg-white-mode fixed-top navbar-dark @else {{$change}} @endif">
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
@@ -16,8 +16,9 @@ $change="bg-white navbar-light shadow sticky-top";
 
     </a>
     <h3 id="brand"
-      class="mr-lg-3 text-2xl font-bold @if(request()->routeIs('home')) text-light @else  text-dark @endif">
+      class="navbar-brand  mr-lg-3 text-2xl font-bold  @if(request()->routeIs('home'))   @else  text-dark @endif">
       BIBLIOTHEQUE</h3>
+
 
     <!-- Toggle button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarButtonsExample"
@@ -26,7 +27,7 @@ $change="bg-white navbar-light shadow sticky-top";
     </button>
 
     <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+    <div class="collapse navbar-collapse " id="navbarButtonsExample">
       <!-- Left links -->
       <ul class="navbar-nav ms-auto mb-2 mr-lg-2 mb-lg-0">
         <li class="nav-item  @if(request()->routeIs('home')) actives @endif">

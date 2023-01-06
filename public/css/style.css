@@ -587,3 +587,65 @@ text-decoration: none;
 
     
 
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+.lightMode .navbar-brand {
+        color: rgba(0, 0, 0, 0.9) !important;
+    }
+    
+.lightMode .text-darks{
+        color: rgba(0, 0, 0) !important;
+    }
+    .lightMode .navbar-brand:hover,
+    .lightMode .navbar-brand:focus {
+        color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .lightMode .navbar-nav .nav-link {
+        color: rgba(0, 0, 0, 0.55)!important;
+    }
+
+    .lightMode .navbar-nav .nav-link:hover,
+    .lightMode .navbar-nav .nav-link:focus {
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .lightMode .navbar-nav .nav-link.disabled {
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    .lightMode .navbar-nav .show>.nav-link,
+    .lightMode .navbar-nav .nav-link.active {
+        color: rgba(0, 0, 0, 0.9);
+    }
+
+    .lightMode .navbar-toggler {
+        color: rgba(0, 0, 0, 0.55)!important;
+        border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .lightMode .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .lightMode .navbar-text {
+        color: rgba(0, 0, 0, 0.55);
+    }
+
+    .lightMode .navbar-text a,
+    .lightMode .navbar-text a:hover,
+    .lightMode .navbar-text a:focus {
+        color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+
+    .bg-white-mode {
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+    }
+}
+

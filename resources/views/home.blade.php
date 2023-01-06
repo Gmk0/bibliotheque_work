@@ -2,6 +2,9 @@
 
 @section('style')
 
+<style>
+
+</style>
 @endsection
 @section('content')
 
@@ -223,11 +226,14 @@
 @push('script')
 
 <script>
-    if(window.innerWidth >= 768){
-        $(window).scroll(function() { 
+    var current_width=$(window).width();
 
-        if(window.innerWidth >=760){
-           let top = $("#domaine").offset().top;
+   
+  
+    $(window).scroll(function() { 
+
+    
+        let top = $("#domaine").offset().top;
         if ($(document).scrollTop() >= top) {
         $('nav').addClass('bg-white',2000);
         $('nav').addClass('shadow',2000);
@@ -240,33 +246,19 @@
         $('nav').removeClass('shadow',2000);
         $('nav').removeClass('navbar-light',2000);
         $('nav').addClass('navbar-dark',2000);
-        $('#brand').addClass('text-white',2000);
+        if(current_width > 768){
+            $('#brand').addClass('text-white');
+        }
         
+   
         
         }
-        }else{
-            $('nav').removeClass('navbar-dark',2000);
-            $('#brand').removeClass('text-white',2000);
-            $('nav').addClass('bg-white',2000);
-            $('nav').addClass('sticky-top',2000);
-            $('nav').addClass('shadow',2000);
-            $('nav').addClass('navbar-light',2000);
-            $('#brand').removeClass('text-white',2000);
-            $('#brand').addClass('text-dark',2000);
-        }
+
         
         });
-    }else{
-        $('nav').removeClass('navbar-dark',2000);
-        $('#brand').removeClass('text-white',2000);
-        $('nav').addClass('bg-white',2000);
-        $('nav').addClass('sticky-top',2000);
-        $('nav').addClass('shadow',2000);
-        $('nav').addClass('navbar-light',2000);
-        $('#brand').removeClass('text-white',2000);
-        $('#brand').addClass('text-dark',2000);
-    };
-
+    
+        
+       
 
 
    
