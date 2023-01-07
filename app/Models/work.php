@@ -22,7 +22,7 @@ class work extends Model
         "faculte",
         "etudiant",
         "annnee_etude",
-        "nbrs_page",
+        "nbr_pages",
         "path_document",
         "status",
         "viewCounter",

@@ -30,8 +30,10 @@ class AddWork extends Component
             "work.categorie"=>'required',
             "work.page"=>'required',
             "work.annee"=>'required',
-        
-           
+            "work.domaine" => 'required',
+            "file"=>'required|file|mimes:pdf,docx,ppt,pptx,doc|max:5000'
+        ],[
+            "required"=>"le champs :attribute est requis"
         ]);
 
         
@@ -39,21 +41,22 @@ class AddWork extends Component
         $fileName = time() . $this->file->getClientOriginalName();
         $upload_file = $this->file->storeAs('public/works', $fileName);
 
-        work::create([
+       $works= work::create([
             "sujet"=>$this->work['sujet'],
             "categorie"=>$this->work['categorie'],
             "faculte"=>$this->work['faculte'],
             "etudiant"=>$this->work['etudiant'],
             "annnee_etude"=>$this->work['annee'],
-            "nbrs_page"=>$this->work['page'],
+            "nbr_pages"=>$this->work['page'],
             "path_document"=>$fileName,
             "status"=>0,
             "viewCounter"=>0,
-            "domaines_id"=>$this->work['domaines'],
+            "domaines_id"=>$this->work['domaine'],
         ]);
+      
 
         $this->work = [];
-        $this->file = "";
+        $this->file=null;
         $this->dispatchBrowserEvent("showSuccessMessage", [
             "messages" => "les document a ete bien envoyer"
         ]);

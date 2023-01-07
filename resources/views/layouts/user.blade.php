@@ -44,9 +44,9 @@
 
     @livewireScripts
 
-    <script src="{{asset('js/flowbite.js')}}"></script>
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="/js/flowbite.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/app.js"></script>
     @stack('script')
 
 
