@@ -137,7 +137,8 @@
 
             <div class="d-flex justify-content-center">
                 <div class="col-xs-1">
-                    <a href="" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Voir Plus</a>
+                    <a href="{{route('consultation')}}" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i>
+                        Voir Plus</a>
                 </div>
 
             </div>
@@ -208,7 +209,8 @@
         </div>
         <div class="d-flex justify-content-center">
             <div class="col-xs-1">
-                <a href="" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Voir Plus</a>
+                <a href="{{route('consultation')}}" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Voir
+                    Plus</a>
             </div>
 
         </div>

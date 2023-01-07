@@ -31,20 +31,26 @@
                                 <th>User</th>
                                 <th>Date</th>
                                 <th>Status</th>
-                                <th>Reason</th>
+                                <th>last_activity</th>
+                                <th>address</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-
-                            @endforeach
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td><span class="tag tag-danger">Denied</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                <td><span class="tag text-success">actif</span></td>
+                                @if (empty($user->last_login_at))
+                                <td>no activity</td>
+                                @else
+                                <td>{{$user->last_login_at}}</td>
+                                @endif
+                                <td>{{$user->last_login_ip_address}}</td>
                             </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>

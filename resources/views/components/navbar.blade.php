@@ -10,14 +10,14 @@ $change="bg-white navbar-light shadow sticky-top";
   <div class="container">
     <!-- Navbar brand -->
     <a class="navbar-brand me-2" href="https://mdbgo.com/">
-      <img src="{{asset('images/logo.png')}}" height="50" width="30" alt="" loading="lazy" style="margin-top: -1px;" />
+      <img src="{{asset('images/logo2.png')}}" width="90" alt="" loading="lazy" style="margin-top: -1px;" />
 
 
 
     </a>
     <h3 id="brand"
       class="navbar-brand  mr-lg-3 text-2xl font-bold  @if(request()->routeIs('home'))   @else  text-dark @endif">
-      BIBLIOTHEQUE</h3>
+      BIBLIOTHEQUE-UCC</h3>
 
 
     <!-- Toggle button -->

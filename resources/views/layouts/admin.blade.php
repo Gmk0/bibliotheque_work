@@ -75,8 +75,27 @@
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
             <div class="p-3">
-                <h5>Title</h5>
-                <p>Sidebar content</p>
+                <h5>Adminstration</h5>
+                <div class="row justify-content-beetwen">
+                    <div class="col-12">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">{{Auth::user()->name}}</label>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">{{Auth::user()->email}}</label>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">{{Auth::user()->mobile}}</label>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <a href="" class="btn btn-secondary btn-block">Profile</a>
+                    </div>
+                    <div class="col-12">
+                        <a href="{{route('admin.logout')}}" class="btn btn-primary btn-block">Logout</a>
+                    </div>
+                </div>
             </div>
         </aside>
         <!-- /.control-sidebar -->

@@ -188,8 +188,8 @@
                                         <button class="btn btn-link"
                                             wire:click="confirmDeletePromo({{$travail->id}},'{{$travail->intitule}}')"><i
                                                 class="fa fa-trash-alt" aria-hidden="true"></i></button>
-                                        <button class="btn btn-link" wire:click="voir({{$travail->id}})"
-                                            data-target="#modal-promotion-edit"><i class="fas fa-edit"></i></button>
+                                        <a href="{{route('admin.works_view',[$travail->id])}}" class="btn btn-link"><i
+                                                class="fas fa-edit"></i></a>
                                     </td>
                                 </tr>
                                 @empty

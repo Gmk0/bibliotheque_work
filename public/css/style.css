@@ -19,7 +19,7 @@ a.actives:hover{
 }
 .navbar a:hover{
    
-    color:  hsla(194, 100%, 50%, 0.765)  !important;
+    color: #12A7E4  !important;
     transition: all 0.3s;
 }
 .login{
@@ -112,14 +112,14 @@ text-decoration: none;
 
 
 .content .links a.active{
-border-bottom: 3px solid #007bff;
+border-bottom: 3px solid #12A7E4;
 }
 
 .content .links li a.hover:hover,
 .login .linkLogin li a.hover:hover,
 .content .links li label:hover {
     
-    border-bottom: 3px solid #007bff;
+    border-bottom: 3px solid #12A7E4;
 }
 
 .wrapper .search-icon,
@@ -532,8 +532,8 @@ text-decoration: none;
   }
   .cards.cards-has-bg:hover .cards-img-overlay {
     transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    background: #234f6d;
-    background: linear-gradient(0deg, rgba(4, 69, 114, 0.5) 0%, #044572 100%);
+    background: #12a8e4b4;
+    background: linear-gradient(0deg, rgba(4, 69, 114, 0.5) 0%, #12a8e4b4 100%);
   }
   .cards .cards-footer {
     background: none;
@@ -563,10 +563,14 @@ text-decoration: none;
   }
   
   .bg-card{
-    background: #007d7bc8;
+    background: #12a8e4c6;
     height: 70%;
   }
 
+  .btn-primary{
+    background: #12a8e4 !important;
+    color: #fff !important;
+  }
    .bg-carousel {
        background: #b3e1ffbc;
        font-size: 30px;

@@ -25,5 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/works', WorksAdmin::class)->name('admin.works');
         Route::get('/users', UserAdmin::class)->name('admin.users');
         Route::get('/administration', Administration::class)->name('admin.administration');
+        Route::get('/works_view/{id}', \App\Http\Livewire\Admin\ViewOneWorks::class)->name('admin.works_view');
+
     });
 });

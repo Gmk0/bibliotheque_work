@@ -1,32 +1,38 @@
 <section>
 
-    <!-- Footer -->
-<footer class="bg-secondary text-center text-white">
+  <!-- Footer -->
+  <footer class="bg-secondary text-center text-white">
     <!-- Grid container -->
-    <div class="container p-4">
-  
+    <div class="container">
+
       <!-- Section: Social media -->
       <section class="mb-4">
         <!-- Facebook -->
-        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-  
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i
+            class="fab fa-facebook-f"></i></a>
+
         <!-- Twitter -->
-        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-  
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i
+            class="fab fa-twitter"></i></a>
+
         <!-- Google -->
-        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="#!" role="button"><i class="fab fa-google"></i></a>
-  
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="#!" role="button"><i
+            class="fab fa-google"></i></a>
+
         <!-- Instagram -->
-        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-  
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i
+            class="fab fa-instagram"></i></a>
+
         <!-- Linkedin -->
-        <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i
+            class="fab fa-linkedin-in"></i></a>
         <!-- Github -->
-        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="#!" role="button"><i class="fab fa-github"></i></a>
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="#!" role="button"><i
+            class="fab fa-github"></i></a>
       </section>
       <!-- Section: Social media -->
-  
-  
+
+
       <!-- Section: Form -->
       <section class="">
         <form action="">
@@ -39,7 +45,7 @@
               </p>
             </div>
             <!--Grid column-->
-  
+
             <!--Grid column-->
             <div class="col-md-5 col-12">
               <!-- Email input -->
@@ -49,10 +55,10 @@
               </div>
             </div>
             <!--Grid column-->
-  
+
             <!--Grid column-->
             <div class="col-auto">
-  
+
               <!-- Submit button -->
               <button type="submit" class="btn btn-outline-light mb-4">
                 Subscribe
@@ -64,8 +70,8 @@
         </form>
       </section>
       <!-- Section: Form -->
-  
-  
+
+
       <!-- Section: Text -->
       <section class="mb-4">
         <p>
@@ -76,18 +82,18 @@
         </p>
       </section>
       <!-- Section: Text -->
-  
-  
+
+
     </div>
     <!-- Grid container -->
-  
+
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2023 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">SellDesign</a>
     </div>
     <!-- Copyright -->
-  
+
   </footer>
   <!-- Footer -->
 </section>
