@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/card.scss">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css">
@@ -43,6 +43,8 @@
     @stack('modals')
 
     @livewireScripts
+    @livewire('livewire-ui-modal')
+    @include('livewire-cookie-consent::cookieconsent')
 
     <script src="/js/flowbite.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>

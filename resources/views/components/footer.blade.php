@@ -80,6 +80,9 @@
           commodi optio pariatur est quia magnam eum harum corrupti dicta,
           aliquam sequi voluptate quas.
         </p>
+        <a class='underline' href="#" onclick="Livewire.emit('openModal', 'cookie-consent-edit')">
+          {{ __('Cookie Config') }}
+        </a>
       </section>
       <!-- Section: Text -->
 
