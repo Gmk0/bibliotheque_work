@@ -1,7 +1,7 @@
 <section>
 
     <!-- Footer -->
-    <footer class="p-4 gradient sm:p-6 dark:bg-white">
+    <footer class="p-4 gradient sm:p-6 text-white">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="https://flowbite.com/" class="flex items-center">

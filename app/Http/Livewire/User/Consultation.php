@@ -26,13 +26,16 @@ class Consultation extends Component
     protected $queryString = [
         'searchs' => ['expect' => ''],
         'categorie' => ['expect' => ''],
-        'faculte'=>['expect'=>'']
+        'faculte'=>['expect'=>''],
+        'domaine'=>['expect'=>'']
       
     ];
-    public function clearD()
+    public function clearfilter()
     {
         $this->domaine =null;
-        $this->domainesName = "all Domaine";
+        $this->categorie = null;
+        $this->categorie = null;
+        $this->searchs = "";
     }
     public function domaines($id, string $name){
         $this->domainesName = $name;
@@ -64,7 +67,10 @@ class Consultation extends Component
                 $query->where("categorie",$this->categorie);
                 
             })->when($this->domaine, function ($query) {
-                $query->where("domaines_id", $this->domaine);
+                $query->whereHas('domaine', function ($q) {
+                    $q->where('intitule', 'LIKE', "%{$this->domaine}%");
+                });
+
             }) ->Where('status', 1)
                 ->orderBy($this->name, $this->order)
                 ->search(trim($this->searchs))

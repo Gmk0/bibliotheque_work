@@ -1,111 +1,145 @@
 <div class="min-h-screen mx-6 md:mx-12">
 
     <div class="pt-24 px-6 lg:px-12">
+        <div>
 
-        <div class="pt-24  mx-2 lg:max-12 ">
             <form wire:submit.prevent='searchiTem'>
-                <div class="flex ">
-                    <label for="search-dropdown"
-                        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
-                        Email</label>
-                    <button id="dropdown-button" data-dropdown-toggle="dropdown"
-                        class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 "
-                        type="button">{{$domainesName }}<svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor"
-                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
-                    <div id="dropdown"
-                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700"
-                        data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
-                        style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(897px, 5637px, 0px);">
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                            <li>
-                                <button type="button" wire:click="clearD()"
-                                    class=" text-center w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">all
-                                    Domaine
-                                </button>
-                            </li>
-                            @foreach ($allDomaine as $item)
-                            <li>
-                                <button type="button" wire:click="domaines({{$item->id}},`{{$item->intitule}}`)"
-                                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{$item->intitule}}</button>
-                            </li>
-                            @endforeach
-
-
-                        </ul>
-                    </div>
-                    <div class="relative w-full">
-                        <input type="search" id="search-input" wire:model.defer="searchs"
-                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                            placeholder="Rechercher un travail" required onchange="clearsearch()">
-                        <button type="submit" id="searchButtton"
-                            class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                <div class="w-full md:w-2/3 shadow p-5 rounded-lg bg-white">
+                    <div class="relative">
+                        <div class="absolute flex items-center ml-2 h-full">
+                            <svg class="w-4 h-4 fill-current text-primary-gray-dark" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.8898 15.0493L11.8588 11.0182C11.7869 10.9463 11.6932 10.9088 11.5932 10.9088H11.2713C12.3431 9.74952 12.9994 8.20272 12.9994 6.49968C12.9994 2.90923 10.0901 0 6.49968 0C2.90923 0 0 2.90923 0 6.49968C0 10.0901 2.90923 12.9994 6.49968 12.9994C8.20272 12.9994 9.74952 12.3431 10.9088 11.2744V11.5932C10.9088 11.6932 10.9495 11.7869 11.0182 11.8588L15.0493 15.8898C15.1961 16.0367 15.4336 16.0367 15.5805 15.8898L15.8898 15.5805C16.0367 15.4336 16.0367 15.1961 15.8898 15.0493ZM6.49968 11.9994C3.45921 11.9994 0.999951 9.54016 0.999951 6.49968C0.999951 3.45921 3.45921 0.999951 6.49968 0.999951C9.54016 0.999951 11.9994 3.45921 11.9994 6.49968C11.9994 9.54016 9.54016 11.9994 6.49968 11.9994Z">
+                                </path>
                             </svg>
-                            <span class="sr-only">Search</span>
+                        </div>
+
+                        <div class="relative w-full">
+                            <input type="search" id="search-input" wire:model.defer="searchs"
+                                class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg  border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                placeholder="Rechercher un travail" required onchange="clearsearch()">
+                            <button type="submit" id="searchButtton"
+                                class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                <span class="sr-only">Search</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center justify-between mt-4">
+                        <p class="font-medium">
+                            Filters
+                        </p>
+
+                        <button wire:click="clearfilter()" type="button"
+                            class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                            Reset Filter
                         </button>
                     </div>
-                </div>
-            </form>
 
-
-        </div>
-        <div>
-            <div class="lg:mx-24 md:mx-12 sm:mx-12">
-                <div class="flex items-center justify-between  mt-5">
                     <div>
-                        @empty(!$searchs)
-                        <h5 class="text-gray-700 text-md lg:text-xl font-bold"> Resultat for : "{{$searchs}}"</h5>
-                        @endempty
-                        @empty(!$categorie)
-                        <h5 class="text-gray-700 text-md lg:text-xl font-bold"> Categorie: "{{$categorie}}"</h5>
-                        @endempty
-                        @empty(!$domaine)
-                        <h5 class="text-gray-700 text-md lg:text-xl font-bold"> Domaine: "{{$domainesName}}"</h5>
-                        @endempty
-
-                        <h2 class="text-gray-700 text-md lg:text-xl font-bold">Resultat : {{count($count)}} </h2>
-                    </div>
-                    <div class="flex justify-beetween md:p-6 lg:px-12 ">
-                        <div class="px-4 lg:px-6">
+                        <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
 
                             <select id="countries" wire:model.debounce.800ms='categorie'
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4 lg:px-12 p-2.5 mx-2  ">
-                                <option value="">Categorie</option>
+                                class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
+                                <option value="">--Categorie--</option>
                                 <option value="THESE">THESE</option>
                                 <option value="MEMOIRE">MEMOIRE</option>
                                 <option value="TFC"> TFC</option>
                             </select>
-
-                        </div>
-                        <div class="px-4">
-
-                            <select id="countries" wire:model.debounce.800ms='sort'
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 px-4 ">
-                                <option value="10">10</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
+                            <select
+                                class="px-2 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                                name="" id="faculte" wire:model.defer="faculte">
+                                <option value="">--Faculte--</option>
+                                <option value="ECONOMIE">ECONOMIE</option>
+                                <option value="SCIENCES POLITIQUE">SCIENCES POLITIQUE</option>
+                                <option value="COMMUNICATION SOCIAL">COMMUNICATION SOCIAL</option>
+                                <option value="THEOLOGIE">THEOLOGIE</option>
+                                <option value="SCIENCES INFORMATIQUE">SCIENCES INFORMATIQUE</option>
                             </select>
+                            <select id="countries" wire:model.debounce.800ms='domaine'
+                                class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
+                                <option value="">--domaine--</option>
+                                @foreach ($allDomaine as $item)
+                                <option value="{{$item->intitule}}">{{$item->intitule}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="flex items-center justify-between  mt-2">
+                            <div>
+                                @empty(!$searchs)
+                                <h5 class="text-gray-700 text-md lg:text-xl font-bold"> Resultat for : "{{$searchs}}"
+                                </h5>
+                                @endempty
+                                @empty(!$categorie)
+                                <h5 class="text-gray-700 text-md lg:text-xl font-bold"> Categorie: "{{$categorie}}"</h5>
+                                @endempty
+                                @empty(!$domaine)
+                                <h5 class="text-gray-700 text-md lg:text-xl font-bold"> Domaine: "{{$domaine}}"
+                                </h5>
+                                @endempty
+
+                                <h2 class="text-gray-700 text-md lg:text-xl font-bold">Resultat : {{count($count)}}
+                                </h2>
+                            </div>
+                            <div>
+                                <div wire:loading class="h-8">
+                                    <div role="status">
+                                        <svg aria-hidden="true"
+                                            class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                                            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                                fill="currentFill" />
+                                        </svg>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-beetween md:p-6 lg:px-12 ">
+
+                                <div class="px-4">
+
+                                    <select id="countries" wire:model.debounce.800ms='sort'
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 px-4 ">
+                                        <option value="10">10</option>
+                                        <option value="50">50</option>
+                                        <option value="75">75</option>
+                                        <option value="100">100</option>
+                                    </select>
+
+                                </div>
+
+
+                            </div>
 
                         </div>
-
-
                     </div>
-
                 </div>
-            </div>
 
-            <div class="lg:mx-26 md:mx-13 mt-5 ">
+            </form>
+        </div>
+
+        <div>
+
+
+
+            <div class="mt-2">
                 @forelse ($works as $travail)
 
-                <div class="max-w-2xl mb-4 px-8 py-4 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800"
+                <div class="max-w-4xl mb-4 px-8 py-4 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800"
                     style="cursor: auto;">
                     <div class="flex items-center justify-between">
                         <span
@@ -136,7 +170,7 @@
                     </div>
                 </div>
                 @empty
-                <div class="max-w-2xl px-8 py-4 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800"
+                <div class="w-75 mt-2 px-8 py-4 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800"
                     style="cursor: auto;">
                     <div class="flex items-center justify-between">
 
@@ -166,6 +200,7 @@
 
 
     </div>
+
 </div>
 
 {{--<div class="container mt-6">

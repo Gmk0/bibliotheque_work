@@ -44,7 +44,10 @@ $gradient=""
           </div>
         </div>
         <div class="col-md-8">
-          <div id="viewer" class="bg-red-600" style="width: 100%; height: 500px;">
+          <div id="app">
+            <iframe src="https://drive.google.com/file/d/1kJJeabYl-NH4nsNV8kLs-qTUYESbUfMx/preview" width="500"
+              height="375">
+            </iframe>
           </div>
         </div>
 
