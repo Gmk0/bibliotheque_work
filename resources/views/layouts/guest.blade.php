@@ -7,18 +7,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="stylesheet" href="{{asset('build/assets/app-2a37e680.css')}}">
+
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    <link rel="stylesheet" href="/build/assets/app-af645ca6.css">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
 </head>
 
 <body class="bg-white">
     <div class="font-sans text-gray-900 ">
         {{ $slot }}
     </div>
+
+    <script src="/build/assets/app-40420331.js"></script>
 </body>
 
 </html>

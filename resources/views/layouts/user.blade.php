@@ -17,8 +17,9 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css">
 
+  <link rel="stylesheet" href="/build/assets/app-af645ca6.css">
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  {{--@vite(['resources/css/app.css', 'resources/js/app.js'])--}}
   <!-- Scripts -->
   @yield('style')
 
@@ -66,6 +67,7 @@ $gradient="bg-gray-100";
   @include('livewire-cookie-consent::cookieconsent')
 
   <script src="/js/flowbite.js"></script>
+  <script src="/build/assets/app-40420331.js"></script>
 
   @stack('script')
 
