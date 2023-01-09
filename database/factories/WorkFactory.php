@@ -25,7 +25,7 @@ class WorkFactory extends Factory
             "etudiant" => $this->faker->name,
             "annnee_etude" => $this->faker->numberBetween(2010, 2022),
             "nbr_pages"=> $this->faker->numberBetween(80, 120),
-            "domaines_id"=>1,
+            "domaines_id" => $this->faker->numberBetween(1, 2),
             "path_document" => "travail.pdf",
             "status" => 1,
             "viewCounter" => 0,
