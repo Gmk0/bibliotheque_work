@@ -1,7 +1,7 @@
 <div class="m-8 text-sm leading-normal text-gray-600">
 
     <div class="mb-6">
-        <img src="{{ asset('/vendor/martinschenk/livewire-cookie-consent/LaravelLogo.svg') }}">
+        <img src="/images/logo2.png" width="90">
     </div>
 
     <div class="mb-6">
@@ -29,4 +29,5 @@
         @lang('livewire-cookie-consent::texts.alert_settings')
     </button>
 
+</div>
 </div>

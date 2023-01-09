@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Domaine;
 use App\Models\work;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -9,7 +10,8 @@ use Livewire\WithPagination;
 class Consultation extends Component
 {
     use WithPagination;
-
+    public $allDomaine;
+    public $domaine ;
     public $searchs="";
     public $categorie;
     public $faculte;
@@ -17,14 +19,26 @@ class Consultation extends Component
     public $sort="10";
     public $name="sujet";
     public $sujet;
+    public $domainesName="all categorie";
+    
 
-    protected $paginationTheme = "bootstrap";
+    protected $paginationTheme = "tailwind";
     protected $queryString = [
         'searchs' => ['expect' => ''],
         'categorie' => ['expect' => ''],
         'faculte'=>['expect'=>'']
       
     ];
+    public function clearD()
+    {
+        $this->domaine =null;
+        $this->domainesName = "all Domaine";
+    }
+    public function domaines($id, string $name){
+        $this->domainesName = $name;
+        $this->domaine=$id;
+    }
+
 
     public function searchiTem()
     {
@@ -40,12 +54,17 @@ class Consultation extends Component
     }
     public function render()
     {
+        $this->allDomaine= Domaine::all();
+
         return view('livewire.user.consultation',[
             "works" => work::when($this->faculte, function ($q) {
                 $q->where("faculte", 'LIKE', "%{$this->faculte}%");
                 
             })->when($this->categorie, function($query){
                 $query->where("categorie",$this->categorie);
+                
+            })->when($this->domaine, function ($query) {
+                $query->where("domaines_id", $this->domaine);
             }) ->Where('status', 1)
                 ->orderBy($this->name, $this->order)
                 ->search(trim($this->searchs))

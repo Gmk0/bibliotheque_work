@@ -8,19 +8,52 @@
 @endsection
 @section('content')
 
-
-<header class="masthead" style="background-image: url('../images/home-bg.jpg')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1>Bienvenue </h1>
-                    <span class="subheading">Tout vos Travaux de fin cycle disponible Partout Ou vous etes</span>
-                </div>
-            </div>
+<div class="pt-24">
+    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <!--Left Col-->
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+            <p class="uppercase tracking-loose w-full">Que recherche vous?</p>
+            <h1 class="my-4 text-5xl font-bold leading-tight">
+                Bibliotheque A porte de Main
+            </h1>
+            <p class="leading-normal text-2xl mb-8">
+                Trouver ic Tous les Travaux de fin de cycle
+            </p>
+            <a href="{{route('register')}}"
+                class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                s'inscrire
+            </a>
+        </div>
+        <!--Right Col-->
+        <div class="w-full md:w-3/5 py-6 text-center">
+            <img class="w-full md:w-4/5 z-50" src="{{url('images/hero.png')}}" />
         </div>
     </div>
-</header>
+</div>
+<div class="relative -mt-12 lg:-mt-24">
+    <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <path
+                    d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+                    opacity="0.100000001"></path>
+                <path
+                    d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+                    opacity="0.100000001"></path>
+                <path
+                    d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+                    id="Path-4" opacity="0.200000003"></path>
+            </g>
+            <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <path
+                    d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z">
+                </path>
+            </g>
+        </g>
+    </svg>
+</div>
+
 
 {{--<section class="mb-3">
 
@@ -97,26 +130,71 @@
 
 </section>--}}
 
-<section id="domaine" class="mb-3 vh-80">
+<section id="domaine" class="bg-white border-b py-8">
 
 
-    <div class="container mb-5">
-        <div class="my-5 text-center">
-            <h4>DOMAINES</h4>
+    <div class="container max-w-5xl mx-auto m-8">
+        <h1 class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800">
+            Dommaines
+        </h1>
+        <div class="w-full mb-4">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
-        <div class="row mt-5">
-            <div class="splide mb-3">
+        <div class="mt-5">
+            <div class="container mx-auto mb-4">
+                <div class="splide mb-4">
+                    <div class="splide__arrows">
+                        <button class="bg-gray-900 shadow splide__arrow splide__arrow--prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                            </svg>
+                        </button>
+                        <button class="bg-gray-900 shadow splide__arrow splide__arrow--next">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="splide__track">
+                        <div class="splide__list gap-x-4">
+                            @foreach ($Domaine as $domaine)
+                            <div class="w-full p-4 shadow-xl rounded-lg bg-gray-300 border-2 border-gray-300 card-splide splide__slide lg:max-w-lg "
+                                style="background-image: url('../storage/domaines/{{$domaine->image}}');">
+                                <div class="space-y-2 bg-gray-600 bg-opacity-75 p-2 rounded">
+                                    <h3 class="text-2xl text-white font-semibold">
+                                        {{$domaine->intitule}}
+                                    </h3>
+                                    <p class="text-white mb-3">
+                                        {{$domaine->description}}
+                                    </p>
+                                    <p class="text-gray-200 text-center mb-3">
+                                        {{count($domaine->works)}} element
+                                    </p>
+
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="splide mb-3">
                 <div class="splide__track">
                     <div class="splide__list">
                         @foreach ($Domaine as $domaine)
-                        <div class="col-sm-4 splide__slide m-2">
+                        <div class="sm:col-4 splide__slide m-2 rounded">
 
-                            <div class="card cards cards-has-bg text-white " style="background-image: url('../storage/domaines/{{$domaine->image}}');
+                            <div class="card  text-white rounded-full  " style="background-image: url('../storage/domaines/{{$domaine->image}}');
                         border-radius:15px !important;
                         min-height:250px;">
 
-                                <div class="card-img-overlay  text-center">
-                                    <div class="bg-card rounded ">
+                                <div class="my-3 text-center">
+                                    <div class=" bg-slate-700 rounded-xl mx-auto my-auto ">
                                         <h4 class="card-title  p-1 ">{{$domaine->intitule}}</h4>
                                         <p class="card-text mb-2 p-2 ">{{$domaine->description}}</p>
                                         <p class="card-text font-weight-bold mb-5 p-1 rounded ">
@@ -133,11 +211,13 @@
 
                     </div>
                 </div>
-            </div>
+            </div>--}}
 
-            <div class="d-flex justify-content-center">
+            <div class="mx-auto mt-8 flex justify-center">
                 <div class="col-xs-1">
-                    <a href="{{route('consultation')}}" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i>
+                    <a href="{{route('consultation')}}"
+                        class="mx-auto lg:mx-0 hover:underline bg-white  font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out gradient text-white"><i
+                            class="fa-solid fa-arrow-down"></i>
                         Voir Plus</a>
                 </div>
 
@@ -178,19 +258,40 @@
 </section>
 
 
-<section class=" mb-5">
+<section class="bg-white border-b py-8">
 
 
-    <div class="container">
-        <div class="my-5">
-            <h4>Dernieres Publication</h4>
+    <div class="container max-w-5xl mx-auto m-8 px-3">
+        <h1 class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800">
+            Derniers Publication
+        </h1>
+        <div class="w-full mb-4">
+            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
-        <div class="row">
+        <div class="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
 
             @foreach($works as $work)
-            <div class="col-md-6 mb-3">
-                <div class="card text-center shadow" style="border-radius: 15px !important">
-                    <div class="card-header">{{$work->categorie}} </div>
+            <div class="max-w-2xl px-8 py-4  bg-white rounded-lg shadow-md ">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-light text-gray-600">
+                        {{$work->created_at}}
+                    </span>
+                    <a href=""
+                        class="px-3 py-1 text-sm font-bold  text-gray-100 transition-colors duration-200 transform bg-gray-400 rounded cursor-pointer hover:bg-gray-500">{{$work->categorie}}</a>
+                </div>
+                <div class="mt-2 mb-2">
+                    <a href="{{route('works_view',[$work->id])}}"
+                        class="text-2xl font-bold text-gray-700 hover:text-gray-600 hover:underline">{{$work->sujet}}</a>
+                    <p class="mt-2 text-gray-600">{{$work->domaine->intitule}}</p>
+                    <p class="mt-2 text-gray-600">Par : {{$work->etudiant}}</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <a href="{{route('works_view',[$work->id])}}" class="text-blue-600 hover:underline">Consulter <i
+                            class="fas fa-arrow-right"></i></a>
+
+                </div>
+                {{--<div class="block text-center shadow" style="">
+                    <div class="text-gray-400 text-lg">{{$work->categorie}} </div>
                     <div class="card-body">
                         <a class="text-decoration-none text-muted" href="">
                             <h5 class="card-title">{{$work->sujet}}</h5>
@@ -199,7 +300,7 @@
 
                     </div>
                     <div class="card-footer text-muted">{{$work->created_at->diffForHumans()}}</div>
-                </div>
+                </div>--}}
             </div>
             @endforeach
 
@@ -207,10 +308,12 @@
 
 
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="mx-auto mt-8 flex justify-center  ">
             <div class="col-xs-1">
-                <a href="{{route('consultation')}}" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Voir
-                    Plus</a>
+                <a href="{{route('consultation')}}"
+                    class="mx-auto lg:mx-0 hover:underline bg-white  font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out gradient text-white"><i
+                        class="fa-solid fa-arrow-down"></i>
+                    Voir Plus</a>
             </div>
 
         </div>
@@ -226,48 +329,93 @@
 
 @endsection
 @push('script')
-
+@auth
 <script>
-    var current_width=$(window).width();
+    var scrollpos = window.scrollY;
+      var header = document.getElementById("header");
+      var navcontent = document.getElementById("nav-content");
+      
+      var brandname = document.getElementById("brandname");
+      var toToggle = document.querySelectorAll(".toggleColour");
 
-   
-  
-    $(window).scroll(function() { 
+      document.addEventListener("scroll", function () {
+        /*Apply classes for slide in bar*/
+        scrollpos = window.scrollY;
 
-    
-        let top = $("#domaine").offset().top;
-        if ($(document).scrollTop() >= top) {
-        $('nav').addClass('bg-white',2000);
-        $('nav').addClass('shadow',2000);
-        $('nav').addClass('navbar-light',2000);
-        $('nav').removeClass('navbar-dark',2000);
-        $('#brand').removeClass('text-white',2000);
-        $('#userName').removeClass('text-white').addClass('text-dark');
-        $('#brand').addClass('text-dark',2000);
-       
+        if (scrollpos > 10) {
+          header.classList.add("bg-white");
+          
+          //Use to switch toggleColour colours
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-gray-800");
+            toToggle[i].classList.remove("text-white");
+          }
+          header.classList.add("shadow");
+          navcontent.classList.remove("bg-gray-100");
+          navcontent.classList.add("bg-white");
         } else {
-        $('nav').removeClass('bg-white',2000);
-        $('nav').removeClass('shadow',2000);
-        $('nav').removeClass('navbar-light',2000);
-        $('nav').addClass('navbar-dark',2000);
-        if(current_width > 768){
-            $('#brand').addClass('text-white');
-            $('#userName').addClass('text-white');
+          header.classList.remove("bg-white");
+          
+          //Use to switch toggleColour colours
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-white");
+            toToggle[i].classList.remove("text-gray-800");
+          }
 
-        }
-        
-   
+          header.classList.remove("shadow");
         
         }
-
-        
-        });
-    
-        
-       
-
-
-   
+      });
 </script>
+@else
+<script>
+    var scrollpos = window.scrollY;
+      var header = document.getElementById("header");
+      var navcontent = document.getElementById("nav-content");
+      var navaction = document.getElementById("navAction");
+      var brandname = document.getElementById("brandname");
+      var toToggle = document.querySelectorAll(".toggleColour");
+
+      document.addEventListener("scroll", function () {
+        /*Apply classes for slide in bar*/
+        scrollpos = window.scrollY;
+
+        if (scrollpos > 10) {
+          header.classList.add("bg-white");
+          navaction.classList.remove("bg-white");
+          navaction.classList.add("gradient");
+          navaction.classList.remove("text-gray-800");
+          navaction.classList.add("text-white");
+          //Use to switch toggleColour colours
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-gray-800");
+            toToggle[i].classList.remove("text-white");
+          }
+          header.classList.add("shadow");
+          navcontent.classList.remove("bg-gray-100");
+          navcontent.classList.add("bg-white");
+        } else {
+          header.classList.remove("bg-white");
+          navaction.classList.remove("gradient");
+          navaction.classList.add("bg-white");
+          navaction.classList.remove("text-white");
+          navaction.classList.add("text-gray-800");
+          //Use to switch toggleColour colours
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-white");
+            toToggle[i].classList.remove("text-gray-800");
+          }
+
+          header.classList.remove("shadow");
+          navcontent.classList.remove("bg-white");
+          navcontent.classList.add("bg-gray-100");
+        }
+      });
+</script>
+@endauth
+
+
+
+
 
 @endpush

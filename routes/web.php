@@ -21,6 +21,9 @@ Route::get('/', [UserController::class,'home'])->name('home');
 Route::get('/admin', function () {
     return view('admin.home');
 });
+Route::get('/lolo', function () {
+    return view('tailwind');
+});
 
 
 Route::get('/consultaion', function () {
