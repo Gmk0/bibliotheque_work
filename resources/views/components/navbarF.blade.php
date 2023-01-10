@@ -4,8 +4,10 @@ $active="text-white bg-blue-700 md:text-blue-700";
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-3 shadow rounded ">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="{{url('/')}}" class="flex items-center">
-            <img src="/images/logo2.png" class="h-6 mr-3 sm:h-9" alt="Ucc" />
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Bibliotheque-App</span>
+            <img src="/images/logo2.png" class="h-8 mr-3 sm:h-9" alt="Ucc" />
+            <span
+                class="self-center text-sm lg:text-lg font-semibold  whitespace-nowrap dark:text-white">Bibliotheque-App</span>
+
         </a>
         <div class="flex items-center md:order-2">
 
