@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Listeners\LastLoggedIn;
+use App\Models\consultation;
+use App\Observers\ConsultationObserver;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -33,6 +35,7 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        consultation::observe(ConsultationObserver::class);
     }
 
     /**

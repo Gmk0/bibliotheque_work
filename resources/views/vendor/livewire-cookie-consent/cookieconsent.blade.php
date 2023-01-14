@@ -1,21 +1,24 @@
 @if (Cookie::get(config('livewire-cookie-consent.cookie_name')) !== null)
-    {{--    <p>cookie is set</p>--}}
+{{-- <p>cookie is set</p>--}}
 @else
-    {{--    <p>cookie is not set</p>--}}
-    {{--    <livewire:cookie-consent-modal />--}}
-    {{--modal sale si no se encuentra el cookie --}}
+{{-- <p>cookie is not set</p>--}}
+{{--
+<livewire:cookie-consent-modal />--}}
+{{--modal sale si no se encuentra el cookie --}}
 
-    <script>
-        window.addEventListener('load',
+<script>
+    window.addEventListener('load',
             function (event) {
-                Livewire.emit("openModal", "cookie-consent-modal")
+                setTimeout(() => {
+                   Livewire.emit("openModal", "cookie-consent-modal") 
+                }, 8000);
+             
             })
-    </script>
+</script>
 
 @endif
 
 <script>
-
     window.addEventListener('cookieChanged', event => {
         //alert('in addEventListener cookieChanged -> value: ' + event.detail.value);
         if (window.dataLayer) {
@@ -24,4 +27,3 @@
         }
     })
 </script>
-

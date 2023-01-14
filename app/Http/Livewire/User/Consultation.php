@@ -20,6 +20,9 @@ class Consultation extends Component
     public $name="sujet";
     public $sujet;
     public $domainesName="all categorie";
+    public $supposition="";
+  
+
     
 
     protected $paginationTheme = "tailwind";
@@ -45,6 +48,7 @@ class Consultation extends Component
 
     public function searchiTem()
     {
+        
 
         return $this->searchs;
     }
@@ -58,6 +62,7 @@ class Consultation extends Component
     public function render()
     {
         $this->allDomaine= Domaine::all();
+        
 
         return view('livewire.user.consultation',[
             "works" => work::when($this->faculte, function ($q) {
@@ -73,7 +78,7 @@ class Consultation extends Component
 
             }) ->Where('status', 1)
                 ->orderBy($this->name, $this->order)
-                ->search(trim($this->searchs))
+                ->search(trim($this->searchiTem()))
                 ->paginate($this->sort),
 
             "count"=> work::when($this->faculte, function ($q) {
@@ -83,8 +88,9 @@ class Consultation extends Component
                 $query->where("categorie",$this->categorie);
             }) ->Where('status', 1)
                 ->orderBy($this->name, $this->order)
-                ->search(trim($this->searchs))
+                ->search(trim($this->searchiTem()))
                 ->get(),
+           
         ]);
     }
 }
