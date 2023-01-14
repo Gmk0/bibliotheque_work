@@ -21,7 +21,7 @@ class WorksAdmin extends Component
     public $check;
     public $sort = 25;
     public  $selection = [];
-    public $facultes=['SCIENCES INFORMATIQUE','ECONOMIE', 'DROIT', 'DROIT CANONIQUE', 'MEDECINE', 'PHILOSOPHIE'];
+    public $facultes=['SCIENCES INFORMATIQUE','ECONOMIE', 'DROIT', 'DROIT CANONIQUE', 'MEDECINE', 'PHILOSOPHIE','COMMUNICATION SOCIAL','THEOLOGIE'];
 
     protected $queryString = [
         'search' => ['expect' => ''],
