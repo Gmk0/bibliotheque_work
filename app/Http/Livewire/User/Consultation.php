@@ -37,7 +37,7 @@ class Consultation extends Component
     {
         $this->domaine =null;
         $this->categorie = null;
-        $this->categorie = null;
+        $this->faculte = null;
         $this->searchs = "";
     }
     public function domaines($id, string $name){
@@ -55,7 +55,7 @@ class Consultation extends Component
     
     public function updating($name, $val)
     {
-        if ($name == 'searchs')  {
+        if ($name == 'searchs'||$name == 'categorie'||$name== 'faculte'||$name= 'domaine')  {
             $this->reset();
         }
     }
@@ -81,12 +81,15 @@ class Consultation extends Component
                 ->search(trim($this->searchiTem()))
                 ->paginate($this->sort),
 
-            "count"=> work::when($this->faculte, function ($q) {
+            "count"=>  work::when($this->faculte, function ($q) {
                 $q->where("faculte", 'LIKE', "%{$this->faculte}%");
-                
-            })->when($this->categorie, function($query){
-                $query->where("categorie",$this->categorie);
-            }) ->Where('status', 1)
+            })->when($this->categorie, function ($query) {
+                $query->where("categorie", $this->categorie);
+            })->when($this->domaine, function ($query) {
+                $query->whereHas('domaine', function ($q) {
+                    $q->where('intitule', 'LIKE', "%{$this->domaine}%");
+                });
+            })->Where('status', 1)
                 ->orderBy($this->name, $this->order)
                 ->search(trim($this->searchiTem()))
                 ->get(),

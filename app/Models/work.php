@@ -26,7 +26,8 @@ class work extends Model
         "path_document",
         "status",
         "viewCounter",
-        "domaine_id"
+        "domaines_id",
+        "etudiants_id"
     ];
 
     public function scopeSearch($query, $term)

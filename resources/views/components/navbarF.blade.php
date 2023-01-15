@@ -6,19 +6,26 @@ $active="text-white bg-blue-700 md:text-blue-700";
         <a href="{{url('/')}}" class="flex items-center">
             <img src="/images/logo2.png" class="h-8 mr-3 sm:h-9" alt="Ucc" />
             <span
-                class="self-center text-sm lg:text-lg font-semibold  whitespace-nowrap dark:text-white">Bibliotheque-App</span>
+                class="self-center text-md lg:text-2xl font-semibold  whitespace-nowrap dark:text-white">Bibliotheque-App</span>
 
         </a>
         <div class="flex items-center md:order-2">
 
             @auth
+            <span class="hidden md:block ml-2 mx-3">{{Auth::user()->name}}</span>
             <button type="button"
                 class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                 data-dropdown-placement="bottom">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="/images/user.png" alt="">
+                @if (!empty(Auth::user()->profile_photo_path))
+                <img class="w-8 h-8 rounded-full" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="">
+                @else
+                <img class="w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="">
+                @endif
+
             </button>
+
             <!-- Dropdown menu -->
             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                 id="user-dropdown">
@@ -37,8 +44,9 @@ $active="text-white bg-blue-700 md:text-blue-700";
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                        <a href="{{route('student.signUp')}}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">inscription
+                            Etudiant</a>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}" x-data>
@@ -77,10 +85,7 @@ $active="text-white bg-blue-700 md:text-blue-700";
                         class="block py-2 pl-3 pr-4 text-lg  bg-blue-700 @if(request()->routeIs('home')) {{$active}} @else text-gray-700 @endif rounded md:bg-transparent md:p-0"
                         aria-current="page">Home</a>
                 </li>
-                <li>
-                    <a href="#"
-                        class="block py-2 pl-3 pr-4 text-lg text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Recherche</a>
-                </li>
+
                 <li>
                     <a href="{{route('consultation')}}"
                         class="block py-2 pl-3 pr-4 text-lg text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Travaux</a>

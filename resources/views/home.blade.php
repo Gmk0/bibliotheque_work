@@ -57,76 +57,7 @@
 
 {{--<section class="mb-3">
 
-    <div class="rounded mb-3">
-        <!-- Carousel wrapper -->
-        <div id="carouselBasicExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
 
-            <!-- Inner -->
-            <div class="carousel-inner w-70" style="">
-                <!-- Single item -->
-                <div class="carousel-item active">
-                    <img src="{{url('images/bg.PNG')}}" height="550px" class="d-block w-100"
-                        alt="Sunset Over the City" />
-                    <div class="carousel-caption ">
-                        <div class="row border bg-carousel rounded-pill p-3 m-5 ">
-                            <h5 class="mb-3">Tout Vos Travaux dans</h5>
-                            <p>Your work in same web</p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Single item -->
-                <div class="carousel-item">
-                    <img src="{{('images/bg2.PNG')}}" height="550px" class="d-block w-100" alt="Canyon at Nigh" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="row border bg-carousel-2 rounded-pill p-3 m-5 ">
-                            <h5>Tout Vos Travaux dans</h5>
-                            <p>Your work in same web</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single item -->
-                <div class="carousel-item">
-                    <img src="{{('images/bg.PNG')}}" height="550px" class="d-block w-100" alt="" />
-                    <div class="carousel-caption ">
-                        <div class="row border bg-carousel-3 p-sm-2  rounded-pill  p-md-3 m-md-5 ">
-                            <h5 class="mb-md-3">Tout Vos Travaux dans</h5>
-                            <p class="mb-md-3">Inscrivez vous pour voir access a tout les contenus de la plateforme</p>
-
-                            <div>
-                                <a href="" class="btn btn-primary">Inscription</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Inner -->
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBasicExample"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselBasicExample"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- Carousel wrapper -->
-    </div>
 
 </section>--}}
 
@@ -184,33 +115,7 @@
                 </div>
             </div>
             {{-- <div class="splide mb-3">
-                <div class="splide__track">
-                    <div class="splide__list">
-                        @foreach ($Domaine as $domaine)
-                        <div class="sm:col-4 splide__slide m-2 rounded">
 
-                            <div class="card  text-white rounded-full  " style="background-image: url('../storage/domaines/{{$domaine->image}}');
-                        border-radius:15px !important;
-                        min-height:250px;">
-
-                                <div class="my-3 text-center">
-                                    <div class=" bg-slate-700 rounded-xl mx-auto my-auto ">
-                                        <h4 class="card-title  p-1 ">{{$domaine->intitule}}</h4>
-                                        <p class="card-text mb-2 p-2 ">{{$domaine->description}}</p>
-                                        <p class="card-text font-weight-bold mb-5 p-1 rounded ">
-                                            {{count($domaine->works)}} elements
-                                        </p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        @endforeach
-
-
-                    </div>
-                </div>
             </div>--}}
 
             <div class="mx-auto mt-8 flex justify-center">
@@ -263,7 +168,7 @@
 
     <div class="container max-w-5xl mx-auto m-8 px-3">
         <h1 class="w-full my-2 text-4xl font-bold leading-tight text-center text-gray-800">
-            Derniers Publication
+            Dernieres Publications
         </h1>
         <div class="w-full mb-4">
             <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>

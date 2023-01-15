@@ -1,4 +1,4 @@
-<section>
+<section class="h-10">
 
     <!-- Footer -->
     <footer class="p-4 gradient sm:p-6 text-white">

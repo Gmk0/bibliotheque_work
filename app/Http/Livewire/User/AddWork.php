@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Domaine;
+use App\Models\etudiant;
 use App\Models\work;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -11,15 +12,12 @@ class AddWork extends Component
 {
     use WithFileUploads;
     public $work=[];
-    public $file;
+    public $nbrsPublication;
+    public $file= null;
     public $students;
-    public $faculte=array(
-        "name"=>[
-            'SCIENCES-INFORMATIQUE',
-            'MEDECINE',
-            'DROIT'
-        ],
-        );
+    public $matricule;
+    public $facultes = ['SCIENCES INFORMATIQUE', 'ECONOMIE', 'DROIT', 'DROIT CANONIQUE', 'MEDECINE', 'PHILOSOPHIE', 'COMMUNICATION SOCIAL', 'THEOLOGIE'];
+
    
 
     public function save(){
@@ -52,15 +50,35 @@ class AddWork extends Component
             "status"=>0,
             "viewCounter"=>0,
             "domaines_id"=>$this->work['domaine'],
+            "etudiants_id" => $this->students->id,
         ]);
       
 
         $this->work = [];
         $this->file=null;
         $this->dispatchBrowserEvent("showSuccessMessage", [
-            "messages" => "les document a ete bien envoyer"
+            "message" => "Votre document a éte bien enregistrer il va
+            etre  verifier avant sans mise enligne"
         ]);
 
+    }
+
+    public function findMatricule(){
+
+        $this->validate([
+            "matricule"=>'required|min:14|max:14'
+        ]);
+        $etudiant=etudiant::where('matricule',$this->matricule)->first();
+        
+        if(!empty($etudiant)){
+            $this->students = $etudiant;
+            $this->nbrsPublication=work::where('etudiants_id', $etudiant->id)->count();
+         
+        }else{
+            $this->dispatchBrowserEvent("error", [
+                "message" => "Matricule introuvable"
+            ]);
+        }
     }
 
     public function render()
@@ -69,7 +87,7 @@ class AddWork extends Component
 
         return view('livewire.user.add-work',[
             'domaines'=>$domaine,
-            'facultes'=>$this->faculte,
+      
         ])->extends('layouts.user')
         ->section('content');
     }

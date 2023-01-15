@@ -16,12 +16,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css">
+  <link rel="stylesheet" href="\build\assets\app-f943cffd.css">
 
-  <link rel="stylesheet" href="/build/assets/app-af645ca6.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <link rel="stylesheet" href="/css/navStyle.css">
+  <link rel="stylesheet" href="/css/loader.css">
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
-  {{--@vite(['resources/css/app.css', 'resources/js/app.js'])--}}
+
   <!-- Scripts -->
   @yield('style')
 
@@ -69,7 +71,8 @@ $gradient="bg-gray-100";
   @include('livewire-cookie-consent::cookieconsent')
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="/js/flowbite.js"></script>
-  <script src="/build/assets/app-40420331.js"></script>
+  <script src="\build\assets\app-6855967d.js"></script>
+
 
   @stack('script')
 

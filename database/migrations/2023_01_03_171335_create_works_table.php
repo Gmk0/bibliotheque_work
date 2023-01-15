@@ -27,6 +27,8 @@ return new class extends Migration
             $table->bigInteger("viewCounter");
             $table->unsignedBigInteger("domaines_id")->nullable();
             $table->foreign("domaines_id")->references('id')->on("domaines");
+            $table->unsignedBigInteger("etudiants_id")->nullable();
+            $table->foreign("etudiants_id")->references('id')->on("etudiants");
             $table->timestamps();
         });
     }

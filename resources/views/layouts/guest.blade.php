@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="/build/assets/app-af645ca6.css">
+    <link rel="stylesheet" href="\build\assets\app-f943cffd.css">
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
 </head>
@@ -20,7 +20,7 @@
         {{ $slot }}
     </div>
 
-    <script src="/build/assets/app-40420331.js"></script>
+    <script src="\build\assets\app-6855967d.js"></script>
 </body>
 
 </html>

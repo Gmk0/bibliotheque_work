@@ -72,8 +72,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a href="{{route('admin.student')}}"
+                        class="nav-link @if(request()->routeIs('admin.student')) active @endif">
+
+                        <i class="nav-icon fa-solid fa-screen-users"></i>
                         <p>
                             Etudiant
                             <span class="right badge badge-danger">New</span>

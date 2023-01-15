@@ -21,6 +21,6 @@ class ViewWorks extends Component
     public function render()
     {
         return view('livewire.user.view-works') ->extends('layouts.user')
-        ->section('content');;
+        ->section('content');
     }
 }
