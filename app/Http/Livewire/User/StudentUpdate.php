@@ -16,7 +16,10 @@ class StudentUpdate extends Component
     }
     public function mount(){
         $id = Auth::user()->id;
-        $this->state = \App\Models\etudiant::where('users_id', $id)->first()->toArray();
+        $data = \App\Models\etudiant::where('users_id', $id)->first();
+        if(!empty($data)){
+            $this->state=$data->toArray();
+        }
     }
 
     public function updateStudent(){

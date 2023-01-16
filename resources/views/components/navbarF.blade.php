@@ -61,7 +61,7 @@ $active="text-white bg-blue-700 md:text-blue-700";
             </div>
             @else
             <a href="{{route('login')}}" id="navAction"
-                class="mx-auto gradient lg:mx-0 hover:underline text-white bg-white font-bold rounded-full  lg:mt-0 py-3 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                class="mx-auto gradient lg:mx-0 hover:underline text-white bg-white font-bold rounded-full  lg:mt-0 py-2 px-4 md:py-3 md:px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                 Connexion
             </a>
             @endauth
@@ -82,7 +82,7 @@ $active="text-white bg-blue-700 md:text-blue-700";
                 class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                     <a href="{{url('/')}}"
-                        class="block py-2 pl-3 pr-4 text-lg  bg-blue-700 @if(request()->routeIs('home')) {{$active}} @else text-gray-700 @endif rounded md:bg-transparent md:p-0"
+                        class="block py-2 pl-3 pr-4 text-lg   @if(request()->routeIs('home')) {{$active}} @else text-gray-700 @endif rounded md:bg-transparent md:p-0"
                         aria-current="page">Home</a>
                 </li>
 
