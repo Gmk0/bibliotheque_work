@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\WorkFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,6 +11,16 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class work extends Model
 {
     use HasFactory;
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return new WorkFactory();
+    }          
 
     public function domaine(){
 
