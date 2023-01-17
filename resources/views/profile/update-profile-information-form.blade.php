@@ -26,8 +26,8 @@
             <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">
                 @if (!empty($this->user->profile_photo_path))
-                <img class="rounded-full h-20 w-20 object-cover" src="/storage/{{ $this->user->profile_photo_path }}"
-                    alt="">
+                <img class="rounded-full h-20 w-20 object-cover"
+                    src="{{Storage::disk('s3')->url('profiles-photos/'.$this->user->profile_photo_path) }}" alt="">
                 @else
                 <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}"
                     class="rounded-full h-20 w-20 object-cover">
