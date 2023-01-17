@@ -36,8 +36,9 @@ class AddWork extends Component
 
         
         
-        $fileName = time() . $this->file->getClientOriginalName();
-        $upload_file = $this->file->storeAs('public/works', $fileName);
+        $fileName = $this->work['etudiant']. $this->file->getClientOriginalName();
+
+        $upload_file = $this->file->storeAs('travaux', $fileName, 's3');
 
        $works= work::create([
             "sujet"=>$this->work['sujet'],

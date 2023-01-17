@@ -50,8 +50,8 @@
                                 <tr>
                                     <td>{{$domaines->id}}</td>
                                     <td>{{$domaines->intitule}}</td>
-                                    <td><img src="{{asset('storage/domaines/'.$domaines->image)}}" class="img-thumbnail"
-                                            width="50" alt=""></td>
+                                    <td><img src="{{Storage::disk('s3')->url('domaines/'.$domaines->image)}}"
+                                            class="img-thumbnail" width="50" alt=""></td>
                                     @if($domaines->status ==1)
                                     <td><button wire:click="DesactiveStatus({{$domaines->id}})" class="btn"><span
                                                 class="badge badge-pill badge-success">activer</span></button>
@@ -147,6 +147,10 @@
                                 </span>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <span wire:target='file' wire:loading.class='loaders'></span>
+
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"

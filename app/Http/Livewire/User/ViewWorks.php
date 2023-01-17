@@ -10,6 +10,7 @@ use Livewire\Component;
 class ViewWorks extends Component
 {
     public $work;
+    public $works;
     public function mount($id)
     {
         $this->work = work::find($id);
@@ -17,6 +18,10 @@ class ViewWorks extends Component
             'users_id' => Auth::user()->id,
             'works_id' => $id,
         ]);
+
+        $this->works= work::where("domaines_id",$this->work->domaines_id)->limit(6)->get();
+       
+
     }
     public function render()
     {

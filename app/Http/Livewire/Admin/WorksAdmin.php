@@ -7,6 +7,7 @@ use App\Models\work;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class WorksAdmin extends Component
 {
@@ -29,6 +30,17 @@ class WorksAdmin extends Component
     ];
 
 
+    public function activeOrDesactive(int $id){
+        $work=work::find($id);
+            if($work->status==1){
+                $work->status=0;
+                $work->update();
+            }else{
+            $work->status = 1;
+            $work->update();
+            }
+    }
+
     public function deleteTravaux(array $id)
     {
 
@@ -39,8 +51,9 @@ class WorksAdmin extends Component
             $works = work::find($id);
             foreach($works as $work){
 
-            $oldFile = public_path("\storage\works\\") . $work->path_document;
-            File::delete($oldFile); 
+            if (Storage::disk('s3')->exists('travaux/' . $work->path_document)) {
+                $path = Storage::disk('s3')->delete('travaux/' . $work->path_document);
+            }
             }
           
          

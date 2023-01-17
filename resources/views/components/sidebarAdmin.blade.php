@@ -36,7 +36,7 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{route('admin.dashboard')}}" class="nav-link ">
-                        <i class="nav-icon fasfa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
 
@@ -47,7 +47,7 @@
                 <li class="nav-item menu-open">
                     <a href="#"
                         class="nav-link @if(request()->routeIs('admin.works')) active @endif @if(request()->routeIs('admin.domaine')) active @endif ">
-                        <i class="nav-icon far fa-circle"></i>
+                        <i class="nav-icon fa fa-graduation-cap"></i>
                         <p>
                             Travaux
                             <i class="right fas fa-angle-left"></i>
@@ -75,7 +75,7 @@
                     <a href="{{route('admin.student')}}"
                         class="nav-link @if(request()->routeIs('admin.student')) active @endif">
 
-                        <i class="nav-icon fa-solid fa-screen-users"></i>
+                        <i class="nav-icon fa fa-users-slash"></i>
                         <p>
                             Etudiant
                             <span class="right badge badge-danger">New</span>
@@ -85,7 +85,7 @@
                 <li class="nav-item ">
                     <a href="{{route('admin.users')}}"
                         class="nav-link @if(request()->routeIs('admin.users')) active @endif">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Utilisateur
                             <span class="right badge badge-danger">New</span>

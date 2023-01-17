@@ -23,7 +23,7 @@
             <div class="col-md-3">
                 <label for="">Faculte</label>
                 <select class="form-control form-control-sm " name="" id="categorie"
-                    wire:model.debounce.800ms="categorie">
+                    wire:model.debounce.800ms="faculte">
                     <option value="">categorie</option>
                     @foreach ($facultes as $item)
                     <option value="{{$item}}">{{$item}}</option>
@@ -38,6 +38,15 @@
                     @foreach ($domaines as $item)
                     <option value="{{$item->id}}">{{$item->intitule}}</option>
                     @endforeach
+
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="">Domaines</label>
+                <select class="form-control form-control-sm" name="" id="" wire:model.debounce.800ms="status">
+                    <option value="">all</option>
+                    <option value="1">active</option>
+                    <option value="0">Desactiver</option>
 
                 </select>
             </div>
@@ -63,19 +72,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header ">
                         <h3 class="card-title">Travail</h3>
 
-                        <div class="card-tools d-flex">
-                            <div class="input-group input-group-sm col-md-3">
+                        <div class="card-tools  d-flex">
 
-                                <select class="form-control" name="" id="" wire:model.debounce.800ms="status">
-                                    <option value="">all</option>
-                                    <option value="1">active</option>
-                                    <option value="0">Desactiver</option>
-
-                                </select>
-                            </div>
                             <div class="input-group input-group-sm col-md-3">
 
                                 <select class="form-control" name="" id="" wire:model.debounce.800ms="sort">
@@ -126,7 +127,9 @@
                                 <i class="fas fa-sync-alt"></i>
                             </button>
 
-                            <button wire:loading class="btn btn-link" type="button" disabled>
+                            <button wire:loading
+                                wire:target="activeMultiples,desactiveMultiple,faculte,domaine,categorie,sort"
+                                class="btn btn-link" type="button" disabled>
                                 <span class="spinner-border spinner-grow-sm" role="status" aria-hidden="true"></span>
                                 Loading...
                             </button>
@@ -145,8 +148,9 @@
                                     <th>select</th>
                                     <th>ID</th>
                                     <th>sujet</th>
-                                    <th>Faculte</th>
+                                    <th>Domaine</th>
                                     <th>Categorie</th>
+                                    <th>document</th>
                                     <th colspan="2">id_Document</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -160,9 +164,11 @@
                                     </td>
                                     <td>{{$travail->id}}</td>
                                     <td>{{$travail->sujet}}</td>
-                                    <td>{{$travail->faculte}}</td>
+                                    <td>{{$travail->domaine->intitule}}</td>
                                     <td>{{$travail->categorie}}</td>
-
+                                    <td><a href="{{Storage::disk('s3')->url('travaux/'.$travail->path_document)}}"
+                                            class="btn"><span
+                                                class="badge badge-pill badge-primary">telecharger</span></a></td>
                                     @if (!empty($travail->id_document))
                                     <td>{{$travail->id_document}}</td>
                                     <td><button wire:click="modifierId({{$travail->id}})" class="btn"><span
@@ -174,15 +180,20 @@
                                     @endif
 
 
-                                    @if($travail->status ==1)
-                                    <td><button class="btn"><span
-                                                class="badge badge-pill badge-success">activer</span></button>
+
+                                    <td>
+                                        <div
+                                            class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+
+                                            <input {{($travail->status == 1)? "checked":""}}
+                                            wire:change="activeOrDesactive({{$travail->id}})" type="checkbox" value="1"
+                                            class="custom-control-input" id="customSwitch3">
+                                            <label class="custom-control-label" for="customSwitch3">
+
+                                            </label>
+                                        </div>
                                     </td>
-                                    @else
-                                    <td> <button class="btn"><span
-                                                class="badge badge-pill badge-warning">desactiver</span></button>
-                                    </td>
-                                    @endif
+
 
                                     <td class="text-center">
                                         <button class="btn btn-link"

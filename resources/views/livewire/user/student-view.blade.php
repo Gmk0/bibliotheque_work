@@ -12,6 +12,9 @@
 
 
         <div class="w-full sm:max-w-md mt-6 px-6 py-4  shadow-md overflow-hidden bg-gray-50 sm:rounded-lg">
+            <div class="w-full p-3.5 rounded {{($checked=true)? '':'hidden'}} mb-6">
+                <h2 class="text-green-500 text-lg">Votre compte est deja associe a un compte etudiant</h2>
+            </div>
             <form wire:submit.prevent="register">
 
 
@@ -58,11 +61,9 @@
 
 
                 <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                        {{ __('Already registered?') }}
-                    </a>
 
-                    <x-jet-button class="ml-4">
+
+                    <x-jet-button class="ml-4 {{($checked=true)? 'hidden':''}}">
                         {{ __('Register') }}
                     </x-jet-button>
                 </div>

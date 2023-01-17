@@ -2,13 +2,25 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\etudiant;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class StudentView extends Component
 {
     public $etudiant=[];
+    public $checked = false;
     public $facultes = ['SCIENCES INFORMATIQUE', 'ECONOMIE', 'DROIT', 'DROIT CANONIQUE', 'MEDECINE', 'PHILOSOPHIE', 'COMMUNICATION SOCIAL', 'THEOLOGIE'];
+
+
+    public function mount()
+    {
+        $checked=etudiant::where('users_id',Auth::user()->id)->exists();
+        if($checked){
+            $this->checked=true;
+        }
+        
+    }
 
     public function render()
     {

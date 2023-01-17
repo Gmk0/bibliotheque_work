@@ -19,7 +19,8 @@ $active="text-white bg-blue-700 md:text-blue-700";
                 data-dropdown-placement="bottom">
                 <span class="sr-only">Open user menu</span>
                 @if (!empty(Auth::user()->profile_photo_path))
-                <img class="w-8 h-8 rounded-full" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="">
+                <img class="w-8 h-8 rounded-full"
+                    src="{{Storage::disk('s3')->url('profiles-photos/'.Auth::user()->profile_photo_path) }}" alt="">
                 @else
                 <img class="w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="">
                 @endif

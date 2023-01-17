@@ -94,7 +94,7 @@
                         <div class="splide__list gap-x-4">
                             @foreach ($Domaine as $domaine)
                             <div class="w-full p-4 shadow-xl rounded-lg bg-gray-300 border-2 border-gray-300 card-splide splide__slide lg:max-w-lg "
-                                style="background-image: url('../storage/domaines/{{$domaine->image}}');">
+                                style="background-image: url('{{Storage::disk('s3')->url('domaines/'.$domaine->image)}}');">
                                 <div class="space-y-2 bg-gray-600 bg-opacity-75 p-2 rounded">
                                     <h3 class="text-2xl text-white font-semibold">
                                         {{$domaine->intitule}}

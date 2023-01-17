@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Domaine;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -34,8 +35,13 @@ class DomaineViews extends Component
             'file' => 'mimes:jpg,png,gif,jpeg'
         ]);
 
-        $fileName = 'domaine' . time() . $this->file->getClientOriginalName();
-        $upload_file = $this->file->storeAs('public/domaines', $fileName);
+        $fileName =$this->file->getClientOriginalName();
+
+        $upload_file = $this->file->storeAs('domaines', $fileName,'s3');
+       
+       // $path= Storage::disk('s3')->put($fileName,$this->file);
+
+
         $data = [
             'intitule' => $this->domaines['intitule'],
             'status' => 0,
@@ -48,9 +54,9 @@ class DomaineViews extends Component
 
 
         $this->domaines = "";
-        $this->file = "";
+        $this->file =null;
         $this->dispatchBrowserEvent("hideModal", [
-            "messages" => "Dommaine bien inserer"
+            "message" => "Dommaine bien inserer"
         ]);
     }
     public function cleanModal()
@@ -76,8 +82,10 @@ class DomaineViews extends Component
     {
      
         $domaine=Domaine::find($id);
-        $oldFile = public_path("\storage\domaines\\") . $domaine->image;
-        File::delete($oldFile);
+        if (Storage::disk('s3')->exists('domaines/'.$domaine->image)) {
+            $path = Storage::disk('s3')->delete('domaines/' . $domaine->image);
+
+        }
 
         Domaine::destroy($id);
 
@@ -123,10 +131,8 @@ class DomaineViews extends Component
             'domaineEdit.description' => 'required',
             ]);
 
-         $oldFile= public_path("\storage\domaines\\").$this->domaineEdit['image'];
-         
+      
          $id = $this->domaineEdit['id'];
-
        
 
        
@@ -139,9 +145,13 @@ class DomaineViews extends Component
             ]);
         }else{
             $fileName = 'domaine' . time() . $this->fileEdit->getClientOriginalName();
-            $upload_file = $this->fileEdit->storeAs('public/domaines', $fileName);
-            File::delete($oldFile);
 
+            if(Storage::disk('s3')->exists('domaines/' . $this->domaineEdit['image'])){
+                $path = Storage::disk('s3')->delete('domaines/' . $this->domaineEdit['image']);
+          
+            };
+           
+            $upload_file = $this->fileEdit->storeAs('domaines', $fileName, 's3');
             Domaine::find($id)->update([
                 'intitule'=>$this->domaineEdit['intitule'],
                 'description'=>$this->domaineEdit['description'],

@@ -50,7 +50,8 @@ $gradient="bg-gray-100";
 
 @endphp
 
-<body class="leading-normal tracking-normal  {{$gradient}}" style="font-family: 'Source Sans Pro', sans-serif;">
+<body id="content" class="leading-normal tracking-normal  {{$gradient}}"
+  style="font-family: 'Source Sans Pro', sans-serif;">
 
   <x-navbarF />
 
@@ -115,7 +116,11 @@ $gradient="bg-gray-100";
             return false;
           }
   </script>
-
+  <script>
+    $(document).ready(function() {
+    $('#loading').fadeOut(3000);
+});
+  </script>
 
 </body>
 
