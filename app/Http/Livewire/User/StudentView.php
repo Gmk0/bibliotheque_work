@@ -42,7 +42,7 @@ class StudentView extends Component
             'users_id' => Auth::user()->id,
         ] ;
 
-            \App\Models\etudiant::create($data);
+            etudiant::create($data);
 
         $this->dispatchBrowserEvent("showSuccessMessage", [
             "messages" => "les document a ete bien envoyer"

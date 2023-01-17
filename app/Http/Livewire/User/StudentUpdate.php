@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\etudiant;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -16,7 +17,7 @@ class StudentUpdate extends Component
     }
     public function mount(){
         $id = Auth::user()->id;
-        $data = \App\Models\etudiant::where('users_id', $id)->first();
+        $data = etudiant::where('users_id', $id)->first();
         if(!empty($data)){
             $this->state=$data->toArray();
         }
@@ -27,7 +28,7 @@ class StudentUpdate extends Component
         $this->validate([
             "state.name"=>"required"
         ]);
-        \App\Models\etudiant::find($this->state['id'])->update([
+        etudiant::find($this->state['id'])->update([
             "name"=>$this->state['name']
         ]);
 
