@@ -16,8 +16,10 @@ class StudentView extends Component
     public function mount()
     {
         $checked=etudiant::where('users_id',Auth::user()->id)->exists();
-        if($checked){
+        if($checked == true){
             $this->checked=true;
+        }else{
+            $this->checked = true;
         }
         
     }
