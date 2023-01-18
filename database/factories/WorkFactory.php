@@ -21,11 +21,11 @@ class WorkFactory extends Factory
 
             "sujet" => $this->faker->realText(50, 2),
             "categorie" => $this->faker->randomElement(array('TFC', 'MEMOIRE', 'THESE')),
-            "faculte" => $this->faker->randomElement(array('DROIT', 'SCIENCES-POLITIQUE')),
+            "faculte" => $this->faker->randomElement(array('ECONOMIE',)),
             "etudiant" => $this->faker->name,
             "annnee_etude" => $this->faker->numberBetween(2010, 2022),
             "nbr_pages"=> $this->faker->numberBetween(80, 120),
-            "domaines_id" => 4,
+            "domaines_id" => 24,
             "path_document" => "travail.pdf",
             "status" => 1,
             "viewCounter" => 0,
